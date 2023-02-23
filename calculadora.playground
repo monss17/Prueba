@@ -1,0 +1,48 @@
+//Author: Monsse Chavez
+
+print("Calculadora con operaciones de suma, resta, multiplicación y división para dos números")
+
+//Funciones
+func readNum() -> Double? { //Función para leer los números ingresados
+    print("Introduzca un número:")
+    let numIn = readLine()
+    if let num =  Double (numIn ?? "") {
+        return num
+    } else {
+        return nil
+    }
+}
+
+func readOper() -> String? { //Función para leer los operadores (+, -, *, /)
+    print("Introduzca un operador (Suma: +, Resta: -, Multiplicación: *, División: /):")
+    let operador = readLine()
+    return operador
+}
+
+if let primerNum = readNum(),
+   let operadorArit = readOper(),
+   let segundoNum = readNum() {
+
+    var result: Double = 0.0
+    if operadorArit == "+" {
+        result = primerNum + segundoNum
+    } else if operadorArit == "-" {
+        result = primerNum - segundoNum
+    } else if operadorArit == "*" {
+        result = primerNum * segundoNum
+    } else if operadorArit == "/" {
+        if segundoNum == 0 {
+            print("No se puede dividir por 0")
+            
+        }
+        result = primerNum / segundoNum
+    } else {
+        print("El operador que introduciste es inválido")
+        
+    }
+
+    print("El resultado de la operación es: \(result)") 
+} else {
+    print("Error, introduzca un número y un operador.")
+    
+}
